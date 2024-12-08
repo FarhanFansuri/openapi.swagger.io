@@ -1,0 +1,175 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "ToDoList API",
+    "description": "Ini adalah API untuk membuat ToDoList",
+    "version": "1.0",
+    "termsOfService": "youtube.com",
+    "contact": {
+      "name": "Farhan",
+      "url": "https://www.linkedin.com/in/farhanfansuri2002/",
+      "email": "example@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/v1/{features}",
+      "description": "Features",
+      "variables": {
+        "features": {
+          "default": "home",
+          "enum": [
+            "home",
+            "users",
+            "admin"
+          ]
+        }
+      }
+    },
+    {
+      "url": "https://api.example.com/v2/",
+      "description": "Features version 2"
+    }
+  ],
+  "externalDocs": {
+    "url": "instagram.com",
+    "description": "Ini adalah documentasi"
+  },
+  "paths": {
+    "/todolist": {
+      "get": {
+        "summary": "Get TodoList",
+        "description": "Ini adalah salah satu metode yang digunakan dalam API TodoList",
+        "parameters": [
+          {
+            "name": "task",
+            "in": "query",
+            "required": false,
+            "description": "Task",
+            "schema": {
+              "type": "string",
+              "default": " "
+            }
+          },
+          {
+            "name": "done",
+            "in": "query",
+            "required": false,
+            "description": "Task is done",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ini response  get"
+          }
+        }
+      },
+      "post": {
+        "summary": "Request to Input Task",
+        "description": "Ini adalah salah satu metode yang digunakan dalam API TodoList",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "task": {
+                    "type": "string",
+                    "minLength": 12,
+                    "default": "",
+                    "required": [
+                      "task"
+                    ]
+                  },
+                  "done": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              },
+              "examples": {
+                "memasak": {
+                  "description": "ini adalah task memasak",
+                  "value": {
+                    "task": "Memasak opor ayam",
+                    "done": false
+                  }
+                },
+                "mencuci": {
+                  "description": "ini adalah task mencuci",
+                  "value": {
+                    "task": "mencuci baju putih",
+                    "done": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Berhasil membuat TodoList",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "TodoList berhasil dibuat"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update TodoList",
+        "description": "Ini adalah metode untuk memperbarui data dalam TodoList",
+        "parameters": [
+          {
+            "name": "task",
+            "in": "query",
+            "required": false,
+            "description": "Task",
+            "schema": {
+              "type": "string",
+              "default": " "
+            }
+          },
+          {
+            "name": "done",
+            "in": "query",
+            "required": false,
+            "description": "Task is done",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "TodoList berhasil diperbarui"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete TodoList",
+        "description": "Ini adalah metode untuk menghapus data dari TodoList",
+        "responses": {
+          "200": {
+            "description": "TodoList berhasil dihapus"
+          }
+        }
+      }
+    }
+  }
+}

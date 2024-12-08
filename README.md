@@ -1,4 +1,4 @@
-# Pelatihan OpenAPI
+# Swagger OpenAPI
 
 Selamat datang di repository pelatihan OpenAPI! Repository ini berisi dokumentasi dan contoh implementasi API menggunakan standar OpenAPI 3.0. Di sini, Anda akan belajar cara mendesain, mengembangkan, dan mendokumentasikan API dengan menggunakan spesifikasi OpenAPI.
 
